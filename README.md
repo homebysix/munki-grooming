@@ -17,6 +17,4 @@ The methodology used by the script is as follows:
 
 Known issues:
 
-- If a package is listed as an `update_for` but the thing it's updating isn't used in a manifest, it will be incorrectly be omitted from the "unused" list.
-
-
+- If a package is listed as an `update_for` but the thing it's updating isn't used in a manifest, it will be incorrectly omitted from the "unused" list (in other words, a false negative, which is safer than a false positive).
