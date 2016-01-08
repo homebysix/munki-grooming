@@ -22,6 +22,13 @@ from pprint import pprint
 from xml.parsers.expat import ExpatError
 
 
+def get_repo():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('path', help='Please Specify the path to your munki repo. /Users/munki_repo')
+    args = parser.parse_args()
+    return args.path
+
+
 def process_manifest(manifest, packages_in_manifests):
     for item in ("managed_installs", "managed_uninstalls", "managed_updates", "optional_installs"):
         try:
@@ -39,12 +46,7 @@ def process_manifest(manifest, packages_in_manifests):
 
 
 def main():
-    munki_repo = raw_input(
-        "Please enter the path to your Munki repo [defaults to /Users/Shared/munki_repo]: ")
-
-    if munki_repo == "":
-        munki_repo = "/Users/Shared/munki_repo"
-
+    munki_repo = get_repo()
     packages_in_repo = []
     requirements_in_repo = []
     for dirpath, dirnames, filenames in os.walk(os.path.join(munki_repo, "pkgsinfo")):
