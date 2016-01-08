@@ -14,11 +14,12 @@
 
 """
 
-from xml.parsers.expat import ExpatError
+import argparse
 import os
 import plistlib
-from pprint import pprint
 import sys
+from pprint import pprint
+from xml.parsers.expat import ExpatError
 
 
 def process_manifest(manifest, packages_in_manifests):
