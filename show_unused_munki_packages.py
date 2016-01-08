@@ -28,7 +28,6 @@ def get_repo():
     args = parser.parse_args()
     return args.path
 
-
 def process_manifest(manifest, packages_in_manifests):
     for item in ("managed_installs", "managed_uninstalls", "managed_updates", "optional_installs"):
         try:
@@ -43,7 +42,6 @@ def process_manifest(manifest, packages_in_manifests):
                 process_manifest(conditional_item, packages_in_manifests)
     except Exception:
         pass
-
 
 def main():
     munki_repo = get_repo()
