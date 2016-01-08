@@ -24,7 +24,7 @@ from xml.parsers.expat import ExpatError
 
 def get_repo():
     parser = argparse.ArgumentParser()
-    parser.add_argument('path', help='Please Specify the path to your munki repo. /Users/munki_repo')
+    parser.add_argument('path', help='Please Specify the path to your munki repo. /Volumes/munki_repo')
     args = parser.parse_args()
     return args.path
 
